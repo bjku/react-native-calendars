@@ -225,7 +225,6 @@ export default class AgendaView extends Component {
     // in CalendarList listView, but that might impact performance when scrolling
     // month list in expanded CalendarList.
     // Further info https://github.com/facebook/react-native/issues/1831
-    this.calendar.scrollToDay(this.state.selectedDay, this.calendarOffset() + 1, true);
   }
 
   _chooseDayFromCalendar(d) {
@@ -247,7 +246,6 @@ export default class AgendaView extends Component {
       });
     }
     this.setScrollPadPosition(this.initialScrollPadPosition(), true);
-    this.calendar.scrollToDay(day, this.calendarOffset(), true);
     if (this.props.loadItemsForMonth) {
       this.props.loadItemsForMonth(xdateToData(day));
     }
@@ -277,7 +275,6 @@ export default class AgendaView extends Component {
   onDayChange(day) {
     const newDate = parseDate(day);
     const withAnimation = dateutils.sameMonth(newDate, this.state.selectedDay);
-    this.calendar.scrollToDay(day, this.calendarOffset(), withAnimation);
     this.setState({
       selectedDay: parseDate(day)
     });
