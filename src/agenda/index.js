@@ -363,25 +363,6 @@ export default class AgendaView extends Component {
           {this.renderReservations()}
         </View>
         <Animated.View style={headerStyle}>
-          <Animated.View style={{flex:1, transform: [{ translateY: contentTranslate }]}}>
-            <CalendarList
-              theme={this.props.theme}
-              onVisibleMonthsChange={this.onVisibleMonthsChange.bind(this)}
-              ref={(c) => this.calendar = c}
-              minDate={this.props.minDate}
-              maxDate={this.props.maxDate}
-              current={this.currentMonth}
-              markedDates={this.generateMarkings()}
-              markingType={this.props.markingType}
-              onDayPress={this._chooseDayFromCalendar.bind(this)}
-              scrollingEnabled={this.state.calendarScrollable}
-              hideExtraDays={this.state.calendarScrollable}
-              firstDay={this.props.firstDay}
-              monthFormat={this.props.monthFormat}
-              pastScrollRange={this.props.pastScrollRange}
-              futureScrollRange={this.props.futureScrollRange}
-            />
-          </Animated.View>
           {knob}
         </Animated.View>
         <Animated.View style={weekdaysStyle}>
