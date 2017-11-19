@@ -300,31 +300,6 @@ export default class AgendaView extends Component {
 
   render() {
     const agendaHeight = Math.max(0, this.viewHeight);
-    const weekDaysNames = dateutils.weekDayNames(this.props.firstDay);
-    const weekdaysStyle = [this.styles.weekdays, {
-      opacity: this.state.scrollY.interpolate({
-        inputRange: [agendaHeight - HEADER_HEIGHT, agendaHeight],
-        outputRange: [0, 1],
-        extrapolate: 'clamp',
-      }),
-      transform: [{ translateY: this.state.scrollY.interpolate({
-        inputRange: [Math.max(0, agendaHeight - HEADER_HEIGHT), agendaHeight],
-        outputRange: [-HEADER_HEIGHT, 0],
-        extrapolate: 'clamp',
-      })}]
-    }];
-
-    const headerTranslate = this.state.scrollY.interpolate({
-      inputRange: [0, agendaHeight],
-      outputRange: [agendaHeight, 0],
-      extrapolate: 'clamp',
-    });
-
-    const contentTranslate = this.state.scrollY.interpolate({
-      inputRange: [0, agendaHeight],
-      outputRange: [0, agendaHeight/2],
-      extrapolate: 'clamp',
-    });
 
     const headerStyle = [
       this.styles.header,
